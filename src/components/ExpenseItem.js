@@ -1,11 +1,15 @@
-import React, { useContext } from 'react';
-import { TiDelete } from 'react-icons/ti';
+import React, { useState, useContext } from 'react';
+import {Button } from 'react-bootstrap';
 import { AppContext } from '../context/AppContext';
+import DeleteExpenseForm from './DeleteExpenseForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Badge from 'react-bootstrap/Badge';
 
 const ExpenseItem = (props) => {
 	const { dispatch } = useContext(AppContext);
+
+	const [showDeleteExpenseModal, setShowDeleteExpenseModal] = useState(false);
+	const handleCloseDeleteExpenseModal = () => setShowDeleteExpenseModal(false);
+	const handleShowDeleteExpenseModal = () => setShowDeleteExpenseModal(true);
 
 	const handleDeleteExpense = () => {
 		dispatch({
@@ -15,13 +19,23 @@ const ExpenseItem = (props) => {
 	};
 
 	return (
-		<li class='list-group-item d-flex justify-content-between align-items-center'>
+		<>
+			<li className='list-group-item d-flex justify-content-between align-items-center'>
 			{props.name}
-			<div>
-				<Badge> ₱ {props.cost}</Badge>	
-				<TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete>
+			<div className='alert alert-primary'>
+				<b> ₱{props.cost}</b>
 			</div>
+
+			<Button variant="danger" size="sm" onClick={handleShowDeleteExpenseModal}>Delete</Button>
 		</li>
+		<DeleteExpenseForm
+			showDeleteExpenseModal={showDeleteExpenseModal}
+			handleCloseDeleteExpenseModal={handleCloseDeleteExpenseModal}
+			handleDeleteExpense={handleDeleteExpense}
+			name={props.name}
+			cost={props.cost}/>		
+		</>
+		
 	);
 };
 

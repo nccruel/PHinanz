@@ -20,9 +20,18 @@ const ExpenseList = () => {
 	
 	if (expenses.length === 0){
 		return(
-			<p style={{color: "red"}}>
-				<b><i>NO EXPENSES ADDED YET!</i></b>
-			</p>
+			<> 
+				<input
+					type='text'
+					className='form-control mb-2 mr-sm-2'
+					placeholder='Type to search...'
+					onChange={handleChange}
+				/>
+				<p style={{color: "red"}}>
+					<b><i>NO EXPENSES ADDED YET!</i></b>
+				</p>
+			</>
+			
 		)
 	}
 

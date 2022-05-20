@@ -6,7 +6,7 @@ import TotalExpenses from './components/TotalExpenses';
 import ExpenseList from './components/ExpenseList';
 import AddExpenseForm from './components/AddExpenseForm';
 import { AppProvider } from './context/AppContext';
-import { Bank2 } from 'react-bootstrap-icons';
+import { CashCoin } from 'react-bootstrap-icons';
 import { Row } from 'react-bootstrap';
 
 const App = () => {
@@ -17,7 +17,7 @@ const App = () => {
 	return (
 		<AppProvider>
 			<div className='container'>
-				<h1 className='mt-3'><center><Bank2 /> PHinanz: A Financial Manager</center></h1>
+				<h1 className='mt-3'><center><CashCoin /> PHinanz: A Financial Manager <CashCoin /></center></h1>
 				<div className='row mt-3'>
 					<Row>
 						<div className='col-sm'>
@@ -34,7 +34,7 @@ const App = () => {
 					</Row>
 					
 				</div>
-				<h3 className='mt-3'>Expenses 
+				<h3 className='mt-3'>EXPENSES
 					{' '}
 					<button type='button' className='btn btn-primary' onClick={handleShowAddExpenseModal}>
 						Add New Expense
