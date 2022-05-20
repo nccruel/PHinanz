@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Budget from './components/Budget';
 import Balance from './components/Balance';
@@ -6,10 +6,14 @@ import TotalExpenses from './components/TotalExpenses';
 import ExpenseList from './components/ExpenseList';
 import AddExpenseForm from './components/AddExpenseForm';
 import { AppProvider } from './context/AppContext';
-import { Bank2} from 'react-bootstrap-icons';
-import { Row} from 'react-bootstrap';
+import { Bank2 } from 'react-bootstrap-icons';
+import { Row } from 'react-bootstrap';
 
 const App = () => {
+	const [showAddExpenseModal, setShowAddExpenseModal] = useState(false);
+	const handleCloseAddExpenseModal = () => setShowAddExpenseModal(false);
+	const handleShowAddExpenseModal = () => setShowAddExpenseModal(true);
+
 	return (
 		<AppProvider>
 			<div className='container'>
@@ -30,18 +34,22 @@ const App = () => {
 					</Row>
 					
 				</div>
-				<h3 className='mt-3'>Expenses</h3>
+				<h3 className='mt-3'>Expenses 
+					{' '}
+					<button type='button' className='btn btn-primary' onClick={handleShowAddExpenseModal}>
+						Add New Expense
+					</button>
+				</h3>
+					
 				<div className='row mt-3'>
 					<div className='col-sm'>
 						<ExpenseList />
 					</div>
 				</div>
-				<h3 className='mt-3'>Add Expense</h3>
-				<div className='row mt-3'>
-					<div className='col-sm'>
-						<AddExpenseForm />
-					</div>
-				</div>
+
+				<AddExpenseForm showAddExpenseModal={showAddExpenseModal}
+					handleCloseAddExpenseModal={handleCloseAddExpenseModal}
+				/>
 			</div>
 		</AppProvider>		
 	);
