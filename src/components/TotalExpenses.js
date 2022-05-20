@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
+import { Wallet2} from 'react-bootstrap-icons';
 
 const TotalExpenses = () => {
 	const { expenses } = useContext(AppContext);
@@ -10,7 +11,7 @@ const TotalExpenses = () => {
 
 	return (
 		<div className='alert alert-primary'>
-			<span>Expenses: ₱{totalExpenses}</span>
+			<span><Wallet2 /> <b>Expenses:</b> ₱{totalExpenses}</span>
 		</div>
 	);
 };

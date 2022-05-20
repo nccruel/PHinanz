@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { TiDelete } from 'react-icons/ti';
 import { AppContext } from '../context/AppContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Badge from 'react-bootstrap/Badge';
 
 const ExpenseItem = (props) => {
 	const { dispatch } = useContext(AppContext);
@@ -13,12 +15,10 @@ const ExpenseItem = (props) => {
 	};
 
 	return (
-		<li className='list-group-item d-flex justify-content-between align-items-center'>
+		<li class='list-group-item d-flex justify-content-between align-items-center'>
 			{props.name}
 			<div>
-				<span className='badge badge-primary badge-pill mr-3'>
-					£{props.cost}
-				</span>
+				<Badge> ₱ {props.cost}</Badge>	
 				<TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete>
 			</div>
 		</li>
