@@ -25,6 +25,7 @@ const Balance = () => {
 
 	else{
 		alertType = 'alert-success';
+		
 	}
 	
 
