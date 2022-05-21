@@ -1,0 +1,78 @@
+import React, { useContext, useState } from 'react';
+import { Form, Modal } from 'react-bootstrap';
+import { AppContext } from '../context/AppContext';
+import { v4 as uuidv4 } from 'uuid';
+
+const AddIncomeForm = ({ showAddIncomeModal, handleCloseAddIncomeModal}) => {
+	const { dispatch } = useContext(AppContext);
+
+	const [name, setName] = useState('');
+	const [cost, setCost] = useState('');
+
+	const handleClose = () => {
+		setName('');
+		setCost('');
+        handleCloseAddIncomeModal();
+    };
+
+	const onSubmit = (event) => {
+		event.preventDefault();
+
+		const income = {
+			id: uuidv4(),
+			name: name,
+			cost: parseInt(cost),
+		};
+
+		dispatch({
+			type: 'ADD_INCOME',
+			payload: income,
+		});
+
+		handleClose();
+	};
+
+	return (
+        <Modal show={showAddIncomeModal} onHide={handleClose}>
+            <Modal.Header closeButton>
+                <Modal.Title>Add New Income</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <Form onSubmit={onSubmit}>
+					<div className='row'>
+						<div className='col-sm'>
+							<label for='name'>Name</label>
+							<input
+								required='required'
+								type='text'
+								className='form-control'
+								id='name'
+								value={name}
+								onChange={(event) => setName(event.target.value)}
+							></input>
+						</div>
+						<div className='col-sm'>
+							<label for='cost'>Cost</label>
+							<input
+								required='required'
+								type='text'
+								className='form-control'
+								id='cost'
+								value={cost}
+								onChange={(event) => setCost(event.target.value)}
+							></input>
+						</div>
+						<div className='col-sm'>
+							<button type='submit' className='btn btn-primary mt-3'>
+								Save
+							</button>
+						</div>
+					</div>
+            	</Form>
+            </Modal.Body>
+        </Modal>
+    )
+
+};
+
+export default AddIncomeForm;

@@ -14,10 +14,17 @@ const AppReducer = (state, action) => {
 					(expense) => expense.id !== action.payload
 				),
 			};
-		case 'SET_BUDGET':
+		case 'ADD_INCOME':
 			return {
 				...state,
-				budget: action.payload,
+				income: [...state.income, action.payload],
+			};
+		case 'DELETE_INCOME':
+			return {
+				...state,
+				income: state.income.filter(
+					(income_item) => income_item.id !== action.payload
+				),
 			};
 		default:
 			return state;
@@ -25,8 +32,8 @@ const AppReducer = (state, action) => {
 };
 
 const initialState = {
-	budget: 2000,
 	expenses: [],
+	income: [{id: 12, name: 'Salary', cost: 150}],
 };
 
 export const AppContext = createContext();
@@ -38,8 +45,8 @@ export const AppProvider = (props) => {
 	return (
 		<AppContext.Provider
 			value={{
-				budget: state.budget,
 				expenses: state.expenses,
+				income: state.income,
 				dispatch,
 			}}
 		>

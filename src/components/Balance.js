@@ -3,17 +3,34 @@ import { AppContext } from '../context/AppContext';
 import { PiggyBank} from 'react-bootstrap-icons';
 
 const Balance = () => {
-	const { expenses, budget } = useContext(AppContext);
+	const { expenses, income } = useContext(AppContext);
 
 	const totalExpenses = expenses.reduce((total, item) => {
 		return (total = total + item.cost);
 	}, 0);
+
+	const totalIncome = income.reduce((total, item) => {
+		return (total = total + item.cost);
+	}, 0);
 	
-	const alertType = totalExpenses > budget ? 'alert-danger' : 'alert-success';
+	var alertType;
+
+	if (totalIncome === totalExpenses){
+		alertType = 'alert-dark';
+	}
+
+	else if (totalExpenses > totalIncome){
+		alertType = 'alert-danger';
+	}
+
+	else{
+		alertType = 'alert-success';
+	}
+	
 
 	return (
 		<div className={`alert ${alertType}`}>
-			<span><PiggyBank /> <b>BALANCE:</b> ₱{budget - totalExpenses}</span>
+			<span><PiggyBank /> <b>BALANCE:</b> ₱{totalIncome - totalExpenses}</span>
 		</div>
 	);
 };
