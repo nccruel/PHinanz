@@ -34,13 +34,13 @@ const AppReducer = (state, action) => {
 export const AppContext = createContext();
 
 export const AppProvider = (props) => {
-	const savedFilteredIncome = JSON.parse(localStorage.getItem("filteredincome")); 
-	const savedFilteredExpenses = JSON.parse(localStorage.getItem("filteredexpenses")); 
+	const savedIncome = JSON.parse(localStorage.getItem("income")); 
+	const savedExpenses = JSON.parse(localStorage.getItem("expenses")); 
 	
 	const initialState = (
 		{
-			expenses: savedFilteredExpenses ? savedFilteredExpenses : [],
-			income: savedFilteredIncome ? savedFilteredIncome : [],
+			expenses: savedExpenses || [],
+			income: savedIncome || [],
 		}
 	);
 

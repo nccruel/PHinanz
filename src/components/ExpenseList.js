@@ -13,7 +13,7 @@ const ExpenseList = () => {
 
 	useEffect(() => {
 		const json = JSON.stringify(expenses);
-		localStorage.setItem("filteredexpenses", json);
+		localStorage.setItem("expenses", json);
 	}, [expenses]);
 
 	const handleChange = (event) => {

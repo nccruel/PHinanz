@@ -13,7 +13,7 @@ const IncomeList = () => {
 
 	useEffect(() => {
 		const json = JSON.stringify(income);
-		localStorage.setItem("filteredincome", json);
+		localStorage.setItem("income", json);
 	}, [income]);
 
 	const handleChange = (event) => {
