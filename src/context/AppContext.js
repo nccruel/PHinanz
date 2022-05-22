@@ -31,15 +31,19 @@ const AppReducer = (state, action) => {
 	}
 };
 
-const initialState = {
-	expenses: [],
-	income: [{id: 12, name: 'Salary', cost: 150}],
-};
-
 export const AppContext = createContext();
 
-
 export const AppProvider = (props) => {
+	const savedFilteredIncome = JSON.parse(localStorage.getItem("filteredincome")); 
+	const savedFilteredExpenses = JSON.parse(localStorage.getItem("filteredexpenses")); 
+	
+	const initialState = (
+		{
+			expenses: savedFilteredExpenses ? savedFilteredExpenses : [],
+			income: savedFilteredIncome ? savedFilteredIncome : [],
+		}
+	);
+
 	const [state, dispatch] = useReducer(AppReducer, initialState);
 
 	return (

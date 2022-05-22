@@ -11,6 +11,11 @@ const ExpenseList = () => {
 		setfilteredExpenses(expenses);
 	}, [expenses]);
 
+	useEffect(() => {
+		const json = JSON.stringify(expenses);
+		localStorage.setItem("filteredexpenses", json);
+	}, [expenses]);
+
 	const handleChange = (event) => {
 		const searchResults = expenses.filter((filteredExpense) =>
 			filteredExpense.name.toLowerCase().includes(event.target.value)

@@ -6,9 +6,14 @@ const IncomeList = () => {
 	const { income } = useContext(AppContext);
 
 	const [filteredIncome, setfilteredIncome] = useState(income || []);
-
+	
 	useEffect(() => {
 		setfilteredIncome(income);
+	}, [income]);
+
+	useEffect(() => {
+		const json = JSON.stringify(income);
+		localStorage.setItem("filteredincome", json);
 	}, [income]);
 
 	const handleChange = (event) => {
