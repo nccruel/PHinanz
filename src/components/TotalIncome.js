@@ -11,7 +11,7 @@ const TotalIncome = () => {
 
 	return (
 		<div className='alert alert-warning p-3 d-flex align-items-center justify-content-between'>
-			<span><Wallet2 /> <b>INCOME:</b> ₱{totalIncome}</span>
+			<h5><Wallet2 /> <b>INCOME:</b> ₱{totalIncome}</h5>
 		</div>
 	);
 };

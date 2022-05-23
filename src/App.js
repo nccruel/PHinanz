@@ -9,7 +9,7 @@ import IncomeList from './components/IncomeList';
 import AddIncomeForm from './components/AddIncomeForm';
 import { AppProvider } from './context/AppContext';
 import { CashCoin } from 'react-bootstrap-icons';
-import { Row } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 const App = () => {
 	const [showAddExpenseModal, setShowAddExpenseModal] = useState(false);
@@ -39,36 +39,38 @@ const App = () => {
 							<TotalExpenses />
 						</div>
 					</Row>
-					
-				<h3 className='mt-3'>INCOME
-					{' '}
-					<button type='button' className='btn btn-primary' onClick={handleShowAddIncomeModal}>
-						Add New Income
-					</button>
-				</h3>
-					
-				<div className='row mt-3'>
-					<div className='col-sm'>
-						<IncomeList />
-					</div>
 				</div>
-					
-				</div>
-				<h3 className='mt-3'>EXPENSES
-					{' '}
-					<button type='button' className='btn btn-primary' onClick={handleShowAddExpenseModal}>
-						Add New Expense
-					</button>
-				</h3>
-					
-				<div className='row mt-3'>
-					<div className='col-sm'>
-						<ExpenseList />
-					</div>
-				</div>
-
+				<Row>
+					<Col>
+						<h3 className='mt-3'>INCOME
+							{' '}
+							<button type='button' className='btn btn-primary' onClick={handleShowAddIncomeModal}>
+								Add New Income
+							</button>
+						</h3>
+							
+						<div className='row mt-3'>
+							<div className='col-sm'>
+								<IncomeList />
+							</div>
+						</div>
+					</Col>
+					<Col>
+						<h3 className='mt-3'>EXPENSES
+							{' '}
+							<button type='button' className='btn btn-primary' onClick={handleShowAddExpenseModal}>
+								Add New Expense
+							</button>
+						</h3>
+							
+						<div className='row mt-3'>
+							<div className='col-sm'>
+								<ExpenseList />
+							</div>
+						</div>
+					</Col>				
+				</Row>
 				
-
 				<AddExpenseForm showAddExpenseModal={showAddExpenseModal}
 					handleCloseAddExpenseModal={handleCloseAddExpenseModal}
 				/>

@@ -6,6 +6,12 @@
   background-color: yellow;
 }
 
+.test{
+  background: #aaa;
+  padding: 10px;
+  display: inline-block;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

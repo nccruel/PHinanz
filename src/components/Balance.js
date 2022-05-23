@@ -30,8 +30,8 @@ const Balance = () => {
 	
 
 	return (
-		<div className={`alert ${alertType}`}>
-			<span><PiggyBank /> <b>BALANCE:</b> ₱{totalIncome - totalExpenses}</span>
+		<div className={`alert ${alertType} `}>
+			<h5><center><PiggyBank /> <b>BALANCE:</b> ₱{totalIncome - totalExpenses}</center></h5>
 		</div>
 	);
 };
