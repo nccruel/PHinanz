@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/PHinanz/static/css/main.0bbba82f.css",
-    "main.js": "/PHinanz/static/js/main.912de223.js",
+    "main.js": "/PHinanz/static/js/main.cfd445ec.js",
     "static/js/787.9958106f.chunk.js": "/PHinanz/static/js/787.9958106f.chunk.js",
     "index.html": "/PHinanz/index.html",
     "main.0bbba82f.css.map": "/PHinanz/static/css/main.0bbba82f.css.map",
-    "main.912de223.js.map": "/PHinanz/static/js/main.912de223.js.map",
+    "main.cfd445ec.js.map": "/PHinanz/static/js/main.cfd445ec.js.map",
     "787.9958106f.chunk.js.map": "/PHinanz/static/js/787.9958106f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0bbba82f.css",
-    "static/js/main.912de223.js"
+    "static/js/main.cfd445ec.js"
   ]
 }
