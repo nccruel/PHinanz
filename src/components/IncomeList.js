@@ -18,7 +18,7 @@ const IncomeList = () => {
 
 	const handleChange = (event) => {
 		const searchResults = income.filter((filteredIncome) =>
-			filteredIncome.name.toLowerCase().includes(event.target.value)
+			filteredIncome.name.toLowerCase().includes(event.target.value.toLowerCase())
 		);
 		setfilteredIncome(searchResults);
 	};
